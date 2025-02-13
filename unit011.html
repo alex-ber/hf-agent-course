@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Generation Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .tree {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .chosen-token {
+            background-color: #ddf;
+        }
+    </style>
+</head>
+<body>
+<div class="custom-container">
+    <div class="tree">
+        <ul>
+            <li>
+                <a id="root" class="nopadding">
+                    <span><b>The Capital of France is</b></span>
+                    <table>
+                        <tr>
+                            <th>Token</th>
+                            <th>Step score</th>
+                            <th>Total score</th>
+                        </tr>
+                        <tr class="chosen-token">
+                            <td>Paris</td>
+                            <td>19.9081</td>
+                            <td>19.9081</td>
+                        </tr>
+                        <tr>
+                            <td>the</td>
+                            <td>16.6388</td>
+                            <td>16.6388</td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td>16.1794</td>
+                            <td>16.1794</td>
+                        </tr>
+                        <tr>
+                            <td>known</td>
+                            <td>15.8383</td>
+                            <td>15.8383</td>
+                        </tr>
+                    </table>
+                </a>
+                <ul>
+                    <li>
+                        <a class="nonfinal child">
+                            <span><b>Paris</b></span>
+                            <table>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Step score</th>
+                                    <th>Total score</th>
+                                </tr>
+                                <tr class="chosen-token">
+                                    <td>.</td>
+                                    <td>18.1025</td>
+                                    <td>38.0106</td>
+                                </tr>
+                                <tr>
+                                    <td>,</td>
+                                    <td>16.5056</td>
+                                    <td>36.4136</td>
+                                </tr>
+                                <tr>
+                                    <td><|im_end|></td>
+                                    <td>15.0417</td>
+                                    <td>34.9497</td>
+                                </tr>
+                                <tr>
+                                    <td>and</td>
+                                    <td>14.2381</td>
+                                    <td>34.1461</td>
+                                </tr>
+                            </table>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="end-of-text child nonselected-sequence">
+                                    <span><b><|im_end|></b><br>Total score: 18.04</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

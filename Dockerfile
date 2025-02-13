@@ -11,7 +11,6 @@ ENV LANG=C.UTF-8
 ##https://stackoverflow.com/questions/59732335/is-there-any-disadvantage-in-using-pythondontwritebytecode-in-docker/60797635#60797635
 ENV PYTHONDONTWRITEBYTECODE=1
 
-ENV PYTHONPATH=.;$PYTHONPATH
 
 #one can checkout from GIT if desired
 COPY . /opt/project/hf-agents-course
@@ -27,10 +26,10 @@ RUN set -ex && \
          pip-tools==7.3.0 wheel==0.36.1 && \
      python -m pip install --no-cache-dir -r requirements.txt
 
-CMD ["/bin/sh"]
+#CMD ["/bin/sh"]
 #https://docs.docker.com/reference/build-checks/json-args-recommended/
 #CMD tail -f /dev/null
-#CMD ["tail", "-f", "/dev/null"]
+CMD ["tail", "-f", "/dev/null"]
 #SHELL tail -f /dev/null
 
 

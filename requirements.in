@@ -1,1 +1,9 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 pyyaml==6.0.1
+alex-ber-utils[yml, piptools]
+gradio_client
+transformers
+torch
+torchvision
+torchaudio

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generation Tree Visualizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, tr, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .chosen-token {
+            background-color: #ddf;
+        }
+
+        .custom-container {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        .nonfinal.child span {
+            font-weight: bold;
+            color: var(--primary-500);
+        }
+
+        .secondary {
+            color: var(--secondary-500);
+        }
+    </style>
+</head>
+<body>
+<div class="custom-container">
+    <div class="tree">
+        <ul>
+            <li>
+                <a id="root" class="nopadding">
+                    <span><b>Conclusion: thanks a lot. That's all for today</b></span>
+                    <table>
+                        <tr>
+                            <th>Token</th>
+                            <th>Step score</th>
+                            <th>Total score</th>
+                        </tr>
+                        <tr class="chosen-token">
+                            <td>.</td>
+                            <td>-0.5978</td>
+                            <td>-0.5978</td>
+                        </tr>
+                        <tr class="chosen-token">
+                            <td>!</td>
+                            <td>-2.0282</td>
+                            <td>-2.0282</td>
+                        </tr>
+                        <tr class="chosen-token">
+                            <td>,</td>
+                            <td>-2.0387</td>
+                            <td>-2.0387</td>
+                        </tr>
+                        <tr class="chosen-token">
+                            <td>'s</td>
+                            <td>-3.2158</td>
+                            <td>-3.2158</td>
+                        </tr>
+                    </table>
+                </a>
+                <ul>
+                    <li>
+                        <a class="nonfinal child">
+                            <span><b>.</b></span>
+                            <table>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Step score</th>
+                                    <th>Total score</th>
+                                </tr>
+                                <tr class="chosen-token">
+                                    <td>\n</td>
+                                    <td>-1.5149</td>
+                                    <td>-1.0563</td>
+                                </tr>
+                            </table>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="explanations">
+    <p>The conclusive sequences are the ones that end in an <code>&lt;|endoftext|&gt;</code> token or at the end of
+        generation.</p>
+    <p>They are ranked by their scores, based on the formula <code>score = cumulative_score / (output_length **
+        length_penalty)</code>.</p>
+    <p>Only the top <code>num_beams</code> scoring sequences are returned: in the tree they are highlighted in <span
+            style='color:blue'>blue</span>. The non-selected sequences are also shown in the tree, highlighted in <span
+            style='color:yellow'>yellow</span>.</p>
+    <h4 class="secondary"><span>Output sequences:</span></h4>
+    <ul>
+        <li>Score -1.14: Conclusion: thanks a lot. That's all for today.\n\nAdvertisements&lt;|endoftext|&gt;</li>
+        <li>Score -1.30: Conclusion: thanks a lot. That's all for today. I hope you enjoyed</li>
+        <li>Score -1.33: Conclusion: thanks a lot. That's all for today. I'll be back</li>
+    </ul>
+</div>
+</body>
+</html>
