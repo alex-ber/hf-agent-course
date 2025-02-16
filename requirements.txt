@@ -6,9 +6,20 @@
 #
 --extra-index-url https://download.pytorch.org/whl/cpu
 
+aiofiles==23.2.1
+    # via gradio
 alex-ber-utils[piptools,yml]==0.13.9
     # via -r requirements.in
+annotated-types==0.7.0
+    # via pydantic
 anyio==4.8.0
+    # via
+    #   gradio
+    #   httpx
+    #   starlette
+beautifulsoup4==4.13.3
+    # via markdownify
+brotli==1.1.0
     # via httpx
 build==1.2.2.post1
     # via pip-tools
@@ -20,7 +31,19 @@ certifi==2025.1.31
 charset-normalizer==3.4.1
     # via requests
 click==8.1.8
-    # via pip-tools
+    # via
+    #   duckduckgo-search
+    #   pip-tools
+    #   typer
+    #   uvicorn
+duckduckgo-search==7.4.2
+    # via
+    #   -r requirements.in
+    #   smolagents
+fastapi==0.115.8
+    # via gradio
+ffmpy==0.5.0
+    # via gradio
 filelock==3.17.0
     # via
     #   huggingface-hub
@@ -31,21 +54,40 @@ fsspec==2025.2.0
     #   gradio-client
     #   huggingface-hub
     #   torch
+gradio==5.16.0
+    # via smolagents
 gradio-client==1.7.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   gradio
 h11==0.14.0
-    # via httpcore
+    # via
+    #   httpcore
+    #   uvicorn
+h2==4.2.0
+    # via httpx
 hiyapyco==0.7.0
     # via alex-ber-utils
+hpack==4.1.0
+    # via h2
 httpcore==1.0.7
     # via httpx
-httpx==0.28.1
-    # via gradio-client
+httpx[brotli,http2,socks]==0.28.1
+    # via
+    #   duckduckgo-search
+    #   gradio
+    #   gradio-client
+    #   safehttpx
 huggingface-hub==0.28.1
     # via
+    #   -r requirements.in
+    #   gradio
     #   gradio-client
+    #   smolagents
     #   tokenizers
     #   transformers
+hyperframe==6.1.0
+    # via h2
 idna==3.10
     # via
     #   anyio
@@ -54,39 +96,84 @@ idna==3.10
 jinja2==3.1.5
     # via
     #   alex-ber-utils
+    #   gradio
     #   hiyapyco
+    #   smolagents
     #   torch
-markupsafe==3.0.2
+lxml==5.3.1
+    # via duckduckgo-search
+markdown-it-py==3.0.0
+    # via rich
+markdownify==0.14.1
     # via
+    #   -r requirements.in
+    #   smolagents
+markupsafe==2.1.5
+    # via
+    #   gradio
     #   hiyapyco
     #   jinja2
+mdurl==0.1.2
+    # via markdown-it-py
 mpmath==1.3.0
     # via sympy
 networkx==3.4.2
     # via torch
 numpy==2.2.3
     # via
+    #   gradio
+    #   pandas
     #   torchvision
     #   transformers
+orjson==3.10.15
+    # via gradio
 packaging==24.2
     # via
     #   alex-ber-utils
     #   build
+    #   gradio
     #   gradio-client
     #   huggingface-hub
     #   transformers
+pandas==2.2.3
+    # via
+    #   -r requirements.in
+    #   gradio
+    #   smolagents
 pillow==11.1.0
-    # via torchvision
+    # via
+    #   gradio
+    #   smolagents
+    #   torchvision
 pip-tools==7.4.1
     # via alex-ber-utils
+pydantic==2.10.6
+    # via
+    #   fastapi
+    #   gradio
+pydantic-core==2.27.2
+    # via pydantic
+pydub==0.25.1
+    # via gradio
+pygments==2.19.1
+    # via rich
 pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
+python-dateutil==2.9.0.post0
+    # via pandas
+python-dotenv==1.0.1
+    # via smolagents
+python-multipart==0.0.20
+    # via gradio
+pytz==2025.1
+    # via pandas
 pyyaml==6.0.1
     # via
     #   -r requirements.in
     #   alex-ber-utils
+    #   gradio
     #   hiyapyco
     #   huggingface-hub
     #   transformers
@@ -94,16 +181,46 @@ regex==2024.11.6
     # via transformers
 requests==2.32.3
     # via
+    #   -r requirements.in
     #   huggingface-hub
+    #   smolagents
     #   transformers
+rich==13.9.4
+    # via
+    #   smolagents
+    #   typer
+ruff==0.9.6
+    # via gradio
+safehttpx==0.1.6
+    # via gradio
 safetensors==0.5.2
     # via transformers
+semantic-version==2.10.0
+    # via gradio
+shellingham==1.5.4
+    # via typer
+six==1.17.0
+    # via
+    #   markdownify
+    #   python-dateutil
+smolagents[gradio]==1.9.2
+    # via -r requirements.in
 sniffio==1.3.1
     # via anyio
+socksio==1.0.0
+    # via httpx
+soupsieve==2.6
+    # via beautifulsoup4
+starlette==0.45.3
+    # via
+    #   fastapi
+    #   gradio
 sympy==1.13.1
     # via torch
 tokenizers==0.21.0
     # via transformers
+tomlkit==0.13.2
+    # via gradio
 torch==2.6.0+cpu
     # via
     #   -r requirements.in
@@ -119,14 +236,26 @@ tqdm==4.67.1
     #   transformers
 transformers==4.48.3
     # via -r requirements.in
+typer==0.15.1
+    # via gradio
 typing-extensions==4.12.2
     # via
     #   anyio
+    #   beautifulsoup4
+    #   fastapi
+    #   gradio
     #   gradio-client
     #   huggingface-hub
+    #   pydantic
+    #   pydantic-core
     #   torch
+    #   typer
+tzdata==2025.1
+    # via pandas
 urllib3==2.3.0
     # via requests
+uvicorn==0.34.0
+    # via gradio
 websockets==14.2
     # via gradio-client
 wheel==0.45.1

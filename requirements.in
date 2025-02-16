@@ -7,3 +7,9 @@ transformers
 torch
 torchvision
 torchaudio
+huggingface_hub
+smolagents[gradio]
+markdownify
+requests
+duckduckgo_search
+pandas
