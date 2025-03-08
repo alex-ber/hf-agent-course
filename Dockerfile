@@ -33,6 +33,26 @@ CMD ["tail", "-f", "/dev/null"]
 #SHELL tail -f /dev/null
 
 
+#delete all  containers
+#docker rm -f $(docker ps -a -q)
+
+#This command will only show the dangling images
+#(images that are not tagged or referenced by any container)
+#docker images -f "dangling=true"
+#delete all dangling images
+#docker image prune -f
+#delete all unused images
+#docker image prune -a -f
+
+#delete all images
+#docker rmi -f $(docker images -q)
+
+#deleta all build cache
+#docker builder prune --all
+#verify builder cache deleted
+#docker builder du
+
+
 #https://gallery.ecr.aws/lambda/python/
 #docker system prune --all
 #docker rm -f hf-agent-course
@@ -43,15 +63,8 @@ CMD ["tail", "-f", "/dev/null"]
 #docker build --no-cache --progress=plain . -t hf-agent-course-i
 #docker exec -it $(docker ps -q -n=1) bash
 
-#net stop com.docker.service
-#net start com.docker.service
-
-#net stop LxssManager
-#net start LxssManager
-
 #wsl --shutdown
 #wsl --list --running
-#wsl -d Ubuntu-20.04
 
 #sudo docker stats | sudo tee -a docker_stats.log
 #sudo watch -n 15 "docker stats --no-stream | sudo tee -a docker_stats.log"
